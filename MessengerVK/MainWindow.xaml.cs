@@ -38,7 +38,7 @@ namespace MessengerVK
         {
             try
             {
-                _signIn = new SignIn(TxtLogin.Text, TxtPassword.Text, Settings.All);
+                _signIn = new SignIn(TxtLogin.Text, TxtPassword.Password, Settings.All);
                 _signIn.AuthMethod();
                 _signIn.GetProfileInfo();
             }

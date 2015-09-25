@@ -47,3 +47,26 @@ C:\Users\Lenovo\Documents\CourseWork\MessengerVK\MessengerVK\obj\Debug\Messenger
 C:\Users\Lenovo\Documents\Visual Studio 2015\Templates\ProjectTemplates\Visual C#\CourseWork\MessengerVK\MessengerVK\bin\Debug\MessengerVK.exe.config
 C:\Users\Lenovo\Documents\Visual Studio 2015\Templates\ProjectTemplates\Visual C#\CourseWork\MessengerVK\MessengerVK\obj\Debug\MessengerVK.exe
 C:\Users\Lenovo\Documents\Visual Studio 2015\Templates\ProjectTemplates\Visual C#\CourseWork\MessengerVK\MessengerVK\obj\Debug\MessengerVK.pdb
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\MessengerVK.exe.config
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\MessengerVK.exe
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\MessengerVK.pdb
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\MessengerVK.exe
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\MessengerVK.pdb
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\VkNet.dll
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\VkNet.pdb
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\bin\Debug\VkNet.xml
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\MessengerVK.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\MainWindow.g.cs
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\App.g.cs
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\MessengerVK_MarkupCompile.cache
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\MessengerVK_MarkupCompile.lref
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\MainWindow.baml
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\MessengerVK.g.resources
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\MessengerVK.Properties.Resources.resources
+C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\MessengerVK.csproj.GenerateResource.Cache

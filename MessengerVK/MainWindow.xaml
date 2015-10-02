@@ -3,11 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MessengerVK"
+        xmlns:user="clr-namespace:MessengerVK"
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Title="SignIn" Height="290" Width="270">
+        Title="SignIn" Height="290" Width="270" x:ClassModifier="internal">
+    <Window.DataContext>
+       <user:SignIn/>
+    </Window.DataContext>
     <Grid  MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -20,13 +23,13 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Background="LightSteelBlue" x:Name="TxtBcShowMessage" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="1">Логин</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="2">Пароль</TextBlock>
-        <Button x:Name="BnSignIn" Grid.Column="0" Grid.Row="3" Click="BnSignIn_Click_1">SignIn</Button>
-        <TextBox x:Name="TxtLogin" Grid.Column="1" Grid.Row="1"></TextBox>
-        <PasswordBox x:Name="TxtPassword" Grid.Column="1" Grid.Row="2"></PasswordBox>
-        <Button x:Name="BnCancel" Grid.Column="1" Grid.Row="3" Click="BnCancel_Click">Cancel</Button>
+        <TextBlock Background="LightSteelBlue" x:Name="TxtBcShowMessage" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding status}"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Логин"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Пароль"/>
+        <Button x:Name="BnSignIn" Grid.Column="0" Grid.Row="3" Command="{Binding ButtonSign}" Content="SignIn"/>
+        <TextBox x:Name="TxtLogin" Grid.Column="1" Grid.Row="1" Text="{Binding login}" TextWrapping="Wrap"/>
+        <TextBox x:Name="TxtPassword" Grid.Column="1" Grid.Row="2" Text="{Binding password}" TextWrapping="Wrap"/>
+        <Button x:Name="BnCancel" Grid.Column="1" Grid.Row="3" Click="BnCancel_Click" Content="Cancel"/>
         
     </Grid>
 </Window>

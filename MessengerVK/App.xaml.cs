@@ -13,5 +13,11 @@ namespace MessengerVK
     /// </summary>
     public partial class App : Application
     {
+       static public void MessengeManagerApplicationStartup()
+        {
+            MessageManager messageManager = new MessageManager();
+            messageManager.InitializeComponent();
+            messageManager.ShowDialog();
+        }
     }
 }

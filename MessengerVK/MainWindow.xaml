@@ -4,32 +4,65 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:user="clr-namespace:MessengerVK"
-        mc:Ignorable="d"
-        WindowStyle="None"
+        Title="SignIn"
+        Width="270"
+        Height="290"
         ResizeMode="NoResize"
-        Title="SignIn" Height="290" Width="270" x:ClassModifier="internal">
+        WindowStyle="None"
+        mc:Ignorable="d">
     <Window.DataContext>
-       <user:SignIn/>
+        <user:SignIn />
     </Window.DataContext>
-    <Grid  MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="IsVisibilitySignInForm" />
+    </Window.Resources>
+    <Window.Visibility>
+        <Binding FallbackValue="{x:Static Visibility.Visible}"
+                 Mode="TwoWay"
+                 Path="IsVisibilitySignInForm" />
+    </Window.Visibility>
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition>
-            </RowDefinition>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Background="LightSteelBlue" x:Name="TxtBcShowMessage" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding status}"/>
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="Логин"/>
-        <TextBlock Grid.Column="0" Grid.Row="2" Text="Пароль"/>
-        <Button x:Name="BnSignIn" Grid.Column="0" Grid.Row="3" Command="{Binding ButtonSign}" Content="SignIn"/>
-        <TextBox x:Name="TxtLogin" Grid.Column="1" Grid.Row="1" Text="{Binding login}" TextWrapping="Wrap"/>
-        <TextBox x:Name="TxtPassword" Grid.Column="1" Grid.Row="2" Text="{Binding password}" TextWrapping="Wrap"/>
-        <Button x:Name="BnCancel" Grid.Column="1" Grid.Row="3" Click="BnCancel_Click" Content="Cancel"/>
-        
+        <TextBlock x:Name="TxtBcShowMessage"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Background="LightSteelBlue"
+                   Text="{Binding status}" />
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   Text="Логин" />
+        <TextBox x:Name="TxtLogin"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 Text="{Binding login}"
+                 TextWrapping="Wrap" />
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   Text="Пароль" />
+        <TextBox x:Name="TxtPassword"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Text="{Binding password}"
+                 TextWrapping="Wrap" />
+        <Button x:Name="BnSignIn"
+                Grid.Row="3"
+                Grid.Column="0"
+                Command="{Binding ButtonSign}"
+                Content="SignIn" />
+        <Button x:Name="BnCancel"
+                Grid.Row="3"
+                Grid.Column="1"
+                Click="BnCancel_Click"
+                Content="Cancel" />
     </Grid>
 </Window>

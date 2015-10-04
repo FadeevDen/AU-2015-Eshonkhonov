@@ -73,7 +73,6 @@ C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\Messe
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\MessengerVK.exe.config
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.exe
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.pdb
-D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.csprojResolveAssemblyReference.cache
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MainWindow.g.cs
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\App.g.cs
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -107,4 +106,10 @@ D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\GalaSoft.MvvmLight.Platform
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessageManager.g.cs
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessageManager.baml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Interactions.dll
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Interactions.xml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\System.Windows.Interactivity.xml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\App.baml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.csprojResolveAssemblyReference.cache

@@ -17,8 +17,6 @@ namespace MessengerVK
             {
                 return authFailed;
             }
-
-            
         }
 
         public string AuthSuccessful

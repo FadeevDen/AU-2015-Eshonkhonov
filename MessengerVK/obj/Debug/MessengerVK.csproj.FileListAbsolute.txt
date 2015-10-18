@@ -112,4 +112,8 @@ D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Intera
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Interactions.xml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\System.Windows.Interactivity.xml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\App.baml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\MonoGame.Framework.dll
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\OpenTK.dll
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Tao.Sdl.dll
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Lidgren.Network.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.csprojResolveAssemblyReference.cache

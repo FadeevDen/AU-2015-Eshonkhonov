@@ -8,9 +8,10 @@ namespace MessengerVK
 {
    public class AuthInformation
    {
-       private string authFailed="Authorization failed";
-       private string authSuccessful= "Authorization Successful";
-       private string nullField = "Enter Username and Password";
+       private static string authFailed="Authorization failed";
+       private static string authSuccessful= "Authorization Successful";
+       private static string nullField = "Enter Username and Password";
+      
         public string AuthFailed
         {
             get

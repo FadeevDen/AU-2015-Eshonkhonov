@@ -1,0 +1,97 @@
+﻿<av:Window x:Class="MessengerVK.MessageManager"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:viewModel="clr-namespace:MessengerVK.ViewModel"
+           Title="MessageManager"
+           Width="1024"
+           Height="774"
+           Closed="Window_Closed"
+           Loaded="Window_Loaded"
+           mc:Ignorable="d">
+  <av:Grid ShowGridLines="True">
+        <av:Grid.ColumnDefinitions>
+            <av:ColumnDefinition Width="2*" />
+            <av:ColumnDefinition Width="4*" />
+            <av:ColumnDefinition Width="1*" />
+        </av:Grid.ColumnDefinitions>
+        <av:Grid.RowDefinitions>
+            <av:RowDefinition Height="1*" />
+            <av:RowDefinition Height="2*" />
+            <av:RowDefinition Height="6*" />
+            <av:RowDefinition Height="2*" />
+        </av:Grid.RowDefinitions>
+        <av:TextBlock Grid.Row="0"
+                      Grid.Column="1"
+                      Grid.ColumnSpan="2"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Text="Status" />
+        <av:TextBox Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Text="SearchFriends" />
+        <av:TextBlock Grid.Row="1"
+                      Grid.Column="1"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Text="AboutFriends" />
+        <av:ListView Grid.Row="2"
+                     Grid.RowSpan="2"
+                     Grid.Column="0"
+                     ItemsSource="{Binding}"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                
+                     >
+            <av:ListView.View >
+                
+                <av:GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="IsHitTestVisible" Value="False"/>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    <av:GridViewColumn Width="100">
+                        <av:GridViewColumn.CellTemplate>
+                            <av:DataTemplate>
+                                <av:Image Height="70" Source="{Binding Path=Avatar}" />
+                            </av:DataTemplate>
+                        </av:GridViewColumn.CellTemplate>
+                    </av:GridViewColumn>
+                    <av:GridViewColumn Width="200">
+                        <av:GridViewColumn.CellTemplate>
+                            <av:DataTemplate>
+                                <av:TextBlock Text="{Binding Path=Name}" TextAlignment="Right" />
+                            </av:DataTemplate>
+                        </av:GridViewColumn.CellTemplate>
+                    </av:GridViewColumn>
+                    <av:GridViewColumn Width="100">
+                        <av:GridViewColumn.CellTemplate>
+                            <av:DataTemplate>
+                                <av:TextBlock Text="{Binding Path=Online}" TextAlignment="Right" />
+                            </av:DataTemplate>
+                        </av:GridViewColumn.CellTemplate>
+                    </av:GridViewColumn>
+                </av:GridView>
+            </av:ListView.View>
+        </av:ListView>
+        <av:TextBlock Grid.Row="2"
+                      Grid.Column="1"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Text="MessagesBoard" />
+        <av:Grid Grid.Row="3" Grid.Column="1">
+            <av:TextBox AcceptsReturn="True"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        Text="NewMessage"
+                        TextWrapping="Wrap" />
+        </av:Grid>
+        <av:Grid Grid.Row="3" Grid.Column="2">
+            <av:Button x:Name="BnSend" Content="Send" />
+        </av:Grid>
+    </av:Grid>
+</av:Window>
+

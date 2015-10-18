@@ -4,22 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:user="clr-namespace:MessengerVK"
-        Title="SignIn"
+       Title="SignIn"
         Width="270"
         Height="290"
         ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         mc:Ignorable="d">
     <Window.DataContext>
-        <user:SignIn />
+        <user:SignInViewModel />
     </Window.DataContext>
-    <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="IsVisibilitySignInForm" />
-    </Window.Resources>
     <Window.Visibility>
-        <Binding FallbackValue="{x:Static Visibility.Visible}"
-                 Mode="TwoWay"
-                 Path="IsVisibilitySignInForm" />
+      <Binding Path="IsVisible" Mode="TwoWay"/>
     </Window.Visibility>
     <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
@@ -44,21 +40,23 @@
         <TextBox x:Name="TxtLogin"
                  Grid.Row="1"
                  Grid.Column="1"
-                 Text="{Binding login}"
+                 Text="{Binding Login}"
                  TextWrapping="Wrap" />
         <TextBlock Grid.Row="2"
                    Grid.Column="0"
                    Text="Пароль" />
-        <TextBox x:Name="TxtPassword"
-                 Grid.Row="2"
+        <PasswordBox Grid.Row="2"
                  Grid.Column="1"
-                 Text="{Binding password}"
-                 TextWrapping="Wrap" />
+                Name="PasswordBox"
+                PasswordChar="*"
+                 />
         <Button x:Name="BnSignIn"
                 Grid.Row="3"
                 Grid.Column="0"
                 Command="{Binding ButtonSign}"
-                Content="SignIn" />
+                CommandParameter="{Binding ElementName=PasswordBox}"
+                Content="SignIn">
+            </Button>
         <Button x:Name="BnCancel"
                 Grid.Row="3"
                 Grid.Column="1"

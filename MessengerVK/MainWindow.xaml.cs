@@ -1,5 +1,7 @@
 ﻿using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 namespace MessengerVK
 {
@@ -8,19 +10,18 @@ namespace MessengerVK
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MessageManager messageManager;
         public MainWindow()
         {
+            InitializeComponent();
+           
         }
         
         //Закрытие окна
-        private void BnCancel_Click(object sender, RoutedEventArgs e)
-        {
-           
-            this.Close();
-        }
-        //Метод который позволяет перетаскивать окно 
+        private void BnCancel_Click(object sender, RoutedEventArgs e) => this.Close();
+        //Метод который позволяет перетаскивать окно
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) => DragMove();
-
-       
     }
+
+   
 }

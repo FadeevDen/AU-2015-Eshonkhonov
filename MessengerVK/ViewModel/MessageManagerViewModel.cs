@@ -1,35 +1,22 @@
-﻿using System;
-
+﻿
 using System.Collections.Generic;
 
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using GalaSoft.MvvmLight;
-using FriendList = MessengerVK.FriendModel.FriendList;
-
 
 namespace MessengerVK.ViewModel
 {
 
 
-    public class MessageManagerViewModel : ViewModelBase, INotifyPropertyChanged
+    public class MessageManagerViewModel :INotifyPropertyChanged
     {
 
         private List<Friend> friendsList = new List<Friend>();
-       
-
-        public MessageManagerViewModel()
+         public MessageManagerViewModel()
         {
-
             FriendModel.FriendList.UpdateFriendList();
+            FriendModel.FriendList.TimerUpdateFriendList();
             FriendsList = FriendModel.FriendList.FriendsList;
         }
-
-       
-       
         public List<Friend> FriendsList
         {
             get { return friendsList; }
@@ -37,9 +24,19 @@ namespace MessengerVK.ViewModel
             set
             {
                 friendsList = value;
-                RaisePropertyChanged(() => FriendsList);
+                OnPropertyChanged("FriendList");
             }
         }
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public List<Friend> GetFriendList()
         {

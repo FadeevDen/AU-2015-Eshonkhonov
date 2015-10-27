@@ -1,11 +1,11 @@
-﻿using System;
+﻿using MessengerVK.ViewModel;
+using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+
 using VkNet;
 using VkNet.Enums.Filters;
 using VkNet.Model;
@@ -14,7 +14,7 @@ using VkNet.Model;
 namespace MessengerVK
 {
     
-    public  class SignInViewModel : ViewModelBase, INotifyPropertyChanged
+    public  class SignInViewModel :INotifyPropertyChanged
     {
         private string _status;
         private const int appID = 5074413; // ID приложения
@@ -26,31 +26,21 @@ namespace MessengerVK
         private User user;
         private VkApi api;
         private ICommand buttonSign;
-       public SignInViewModel()
-        {
-            scope = Settings.All;
-            User = new User();
-            authInformation = new AuthInformation();
-            api = new VkApi();
-           MainWindow.messageManager=new MessageManager();
-        }
-        //Click SignIn Button
 
-        public ICommand ButtonSign          
-        {
-            get { return buttonSign ?? (buttonSign = new RelayCommand<object>((args)=> { Password = ((PasswordBox)args).Password; Authorization(); })); }
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-       public string status
+        public string status
         {
             get { return _status; }
             set
             {
                 _status = value;
-                RaisePropertyChanged(() => status);
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this,
+                        new PropertyChangedEventArgs("status"));
             }
         }
-        //Properties for ViewModel
+        
         public VkApi Api
         {
             get
@@ -89,7 +79,9 @@ namespace MessengerVK
             set
             {
                 login = value;
-                RaisePropertyChanged(()=>Login);
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this,
+                        new PropertyChangedEventArgs("Login"));
             }
         }
 
@@ -103,7 +95,9 @@ namespace MessengerVK
             set
             {
                 password = value;
-                RaisePropertyChanged(()=>Password);
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this,
+                        new PropertyChangedEventArgs("Password"));
             }
         }
 
@@ -117,14 +111,23 @@ namespace MessengerVK
             set
             {
                 isVisible = value;
-                RaisePropertyChanged(() => IsVisible);
+                if (PropertyChanged != null)
+                    PropertyChanged.Invoke(this,
+                        new PropertyChangedEventArgs("IsVisible"));
             }
         }
         //Methods
-        public void StartUpMessageManager()
+        public SignInViewModel()
         {
-           
-            MainWindow.messageManager.InitializeComponent();
+            scope = Settings.All;
+            User = new User();
+            authInformation = new AuthInformation();
+            api = new VkApi();
+            MainWindow.messageManager = new MessageManager();
+        }
+        public void StartUpMessageManager()
+        {           
+            MainWindow.messageManager.InitializeComponent();           
             MainWindow.messageManager.ShowDialog();
         }
         private async Task Wait()
@@ -145,8 +148,6 @@ namespace MessengerVK
                     await Wait();
                     IsVisible = Visibility.Collapsed;
                     StartUpMessageManager();
-
-
                 }
                 catch
                 {
@@ -157,7 +158,20 @@ namespace MessengerVK
             {
                 status = authInformation.NullField;
             }
-        } 
+        }
+       
+        public ICommand ButtonSign
+        {
+            get { return buttonSign ?? (buttonSign = new RelayCommand((args) => { Password = ((PasswordBox)args).Password; Authorization(); })); }
+        }
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
 
 
     }

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading;
+using System.Timers;
 using System.Windows;
 using MessengerVK.ViewModel;
 using VkNet.Enums.Filters;
@@ -17,20 +17,24 @@ namespace MessengerVK
         {
 
             InitializeComponent();
+           
+
          
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             MessageManagerViewModel myDataCtx = new MessageManagerViewModel();
-            DataContext = myDataCtx.GetFriendList();
+            DataContext = myDataCtx.FriendsList;
+            
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
             App.Current.Shutdown();
-           
         }
+      
+
+      
     }
    
 

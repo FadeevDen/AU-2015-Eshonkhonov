@@ -11,7 +11,7 @@
            Closed="Window_Closed"
            Loaded="Window_Loaded"
            mc:Ignorable="d">
-  <av:Grid ShowGridLines="True">
+    <av:Grid ShowGridLines="True">
         <av:Grid.ColumnDefinitions>
             <av:ColumnDefinition Width="2*" />
             <av:ColumnDefinition Width="4*" />
@@ -40,20 +40,16 @@
                       VerticalAlignment="Center"
                       Text="AboutFriends" />
         <av:ListView Grid.Row="2"
+                    Name="ListView"                        
                      Grid.RowSpan="2"
                      Grid.Column="0"
                      ItemsSource="{Binding}"
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                
-                     >
-            <av:ListView.View >
-                
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        
+            <av:ListView.View>
+
                 <av:GridView>
-                    <GridView.ColumnHeaderContainerStyle>
-                        <Style TargetType="{x:Type GridViewColumnHeader}">
-                            <Setter Property="IsHitTestVisible" Value="False"/>
-                        </Style>
-                    </GridView.ColumnHeaderContainerStyle>
+                   
                     <av:GridViewColumn Width="100">
                         <av:GridViewColumn.CellTemplate>
                             <av:DataTemplate>

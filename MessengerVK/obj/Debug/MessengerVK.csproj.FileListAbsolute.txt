@@ -93,17 +93,8 @@ D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MainWindow.baml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.g.resources
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.Properties.Resources.resources
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.csproj.GenerateResource.Cache
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\GalaSoft.MvvmLight.dll
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\GalaSoft.MvvmLight.Platform.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\System.Windows.Interactivity.dll
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\GalaSoft.MvvmLight.pdb
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\GalaSoft.MvvmLight.xml
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessageManager.g.cs
@@ -111,7 +102,6 @@ D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessageManager.baml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Interactions.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Interactions.xml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\System.Windows.Interactivity.xml
-D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\App.baml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\MonoGame.Framework.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\OpenTK.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Tao.Sdl.dll

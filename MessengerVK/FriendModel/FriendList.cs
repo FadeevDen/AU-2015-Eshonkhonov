@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
-using System.Windows;
 using VkNet.Enums.Filters;
 using VkNet.Model;
 
@@ -33,7 +29,7 @@ namespace MessengerVK.FriendModel
         {
             return FriendsList;
         }
-       public static void TimerUpdateFriendList()
+       public async static void TimerUpdateFriendList()
         {
           
             Timer timerUpadate = new Timer();
@@ -45,7 +41,7 @@ namespace MessengerVK.FriendModel
             timerUpadate.Start();
         }
        
-        public static void UpdateFriendList()
+        public async static void UpdateFriendList()
         {
            
                 ReadOnlyCollection<User> friendsListTemporary = SaveData.saveData.Api.Friends.Get((long)SaveData.saveData.Api.UserId, ProfileFields.FirstName);
@@ -68,7 +64,7 @@ namespace MessengerVK.FriendModel
                
             }
         }
-        public static void UpdateFriendListTimer(object sender, ElapsedEventArgs e)
+        public async static void UpdateFriendListTimer(object sender, ElapsedEventArgs e)
         {
            
                 ReadOnlyCollection<User> friendsListTemporary = SaveData.saveData.Api.Friends.Get((long)SaveData.saveData.Api.UserId, ProfileFields.FirstName);
@@ -87,9 +83,18 @@ namespace MessengerVK.FriendModel
                     }
                     friendTemplate.Avatar = friendsListTemporary[i].PhotoPreviews.Photo100;
                     friendTemplate.Name = friendsListTemporary[i].FirstName;
-                    friendsList[i] = friendTemplate;
-                
-            }
+                    if (friendsList.Count!=friendsListTemporary.Count)
+                    {
+                       friendsList.Clear();
+                       UpdateFriendList();
+                    }
+                    else
+                    {
+                        friendsList[i] = friendTemplate;
+                    }
+                   
+                    
+                 }
         }
 
     }

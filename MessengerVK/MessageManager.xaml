@@ -44,30 +44,28 @@
                      Grid.RowSpan="2"
                      Grid.Column="0"
                      ItemsSource="{Binding}"
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-        
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     >
             <av:ListView.View>
-
                 <av:GridView>
-                   
                     <av:GridViewColumn Width="100">
                         <av:GridViewColumn.CellTemplate>
                             <av:DataTemplate>
-                                <av:Image Height="70" Source="{Binding Path=Avatar}" />
+                                <av:Image Height="70" Source="{Binding Path=Avatar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                             </av:DataTemplate>
                         </av:GridViewColumn.CellTemplate>
                     </av:GridViewColumn>
                     <av:GridViewColumn Width="200">
                         <av:GridViewColumn.CellTemplate>
                             <av:DataTemplate>
-                                <av:TextBlock Text="{Binding Path=Name}" TextAlignment="Right" />
+                                <av:TextBlock Text="{Binding Path=Name , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
                             </av:DataTemplate>
                         </av:GridViewColumn.CellTemplate>
                     </av:GridViewColumn>
                     <av:GridViewColumn Width="100">
                         <av:GridViewColumn.CellTemplate>
                             <av:DataTemplate>
-                                <av:TextBlock Text="{Binding Path=Online}" TextAlignment="Right" />
+                                <av:TextBlock Text="{Binding Path=Online , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
                             </av:DataTemplate>
                         </av:GridViewColumn.CellTemplate>
                     </av:GridViewColumn>

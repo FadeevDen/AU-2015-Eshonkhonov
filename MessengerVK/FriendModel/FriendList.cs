@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Timers;
+using System.Windows.Input;
+using MessengerVK.ViewModel;
 using VkNet.Enums.Filters;
 using VkNet.Model;
 
@@ -29,7 +33,7 @@ namespace MessengerVK.FriendModel
         {
             return FriendsList;
         }
-       public async static void TimerUpdateFriendList()
+       public static void TimerUpdateFriendList()
         {
           
             Timer timerUpadate = new Timer();
@@ -41,7 +45,7 @@ namespace MessengerVK.FriendModel
             timerUpadate.Start();
         }
        
-        public async static void UpdateFriendList()
+        public  static void UpdateFriendList()
         {
            
                 ReadOnlyCollection<User> friendsListTemporary = SaveData.saveData.Api.Friends.Get((long)SaveData.saveData.Api.UserId, ProfileFields.FirstName);
@@ -64,7 +68,7 @@ namespace MessengerVK.FriendModel
                
             }
         }
-        public async static void UpdateFriendListTimer(object sender, ElapsedEventArgs e)
+        public  static void UpdateFriendListTimer(object sender, ElapsedEventArgs e)
         {
            
                 ReadOnlyCollection<User> friendsListTemporary = SaveData.saveData.Api.Friends.Get((long)SaveData.saveData.Api.UserId, ProfileFields.FirstName);
@@ -92,10 +96,23 @@ namespace MessengerVK.FriendModel
                     {
                         friendsList[i] = friendTemplate;
                     }
-                   
                     
-                 }
+
+                }
         }
+
+        public ICommand Sort
+        {
+            get
+            {
+                return new RelayCommand((args)=>
+                {
+                    friendsList.OrderBy(item => item.Name);
+                }); 
+            }
+
+        }
+
 
     }
 }

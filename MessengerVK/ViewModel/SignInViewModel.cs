@@ -23,10 +23,7 @@ namespace MessengerVK
         private static AuthInformation authInformation;
         private Visibility isVisible;
         private Settings scope; //Уровень доступа
-        private User user;
-        private VkApi api;
         private ICommand buttonSign;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string status
@@ -40,35 +37,7 @@ namespace MessengerVK
                         new PropertyChangedEventArgs("status"));
             }
         }
-        
-        public VkApi Api
-        {
-            get
-            {
-                return api;
-            }
-
-            set
-            {
-                api = value;
-               
-            }
-        }
-
-        public User User
-        {
-            get
-            {
-                return user;
-            }
-
-            set
-            {
-                user = value;
-               
-            }
-        }
-
+      
         public string Login
         {
             get
@@ -120,9 +89,8 @@ namespace MessengerVK
         public SignInViewModel()
         {
             scope = Settings.All;
-            User = new User();
+           
             authInformation = new AuthInformation();
-            api = new VkApi();
             MainWindow.messageManager = new MessageManager();
         }
         public void StartUpMessageManager()
@@ -141,10 +109,9 @@ namespace MessengerVK
             {
                 try
                 {
-                    Api.Authorize(appID, Login, Password, scope);
-                    User = Api.Users.Get(Int64.Parse(Api.UserId.ToString()), ProfileFields.All);
+                    Admin.GetInstance().ApiSingelton.Authorize(appID, Login, Password, scope);
+                    Admin.GetInstance().UserSingelton=Admin.GetInstance().ApiSingelton.Users.Get(Int64.Parse(Admin.GetInstance().ApiSingelton.UserId.ToString()), ProfileFields.All);
                     status = authInformation.AuthSuccessful;
-                    SaveData.Save(Api, User);
                     await Wait();
                     IsVisible = Visibility.Collapsed;
                     StartUpMessageManager();

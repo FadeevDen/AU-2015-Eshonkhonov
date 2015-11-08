@@ -83,13 +83,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Admin.cs" />
     <Compile Include="AuthInformation.cs" />
     <Compile Include="FriendModel\Friend.cs" />
     <Compile Include="FriendModel\FriendList.cs" />
+    <Compile Include="FriendModel\FriendProfileFields.cs" />
     <Compile Include="MessageManager.xaml.cs">
       <DependentUpon>MessageManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SaveData\SaveData.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\MessageManagerViewModel.cs" />
     <Compile Include="ViewModel\SignInViewModel.cs" />

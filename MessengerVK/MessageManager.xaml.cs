@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Timers;
 using System.Windows;
 using MessengerVK.ViewModel;
-using VkNet.Enums.Filters;
-using VkNet.Model;
 
 
 namespace MessengerVK
@@ -15,11 +12,7 @@ namespace MessengerVK
     {
         public MessageManager()
         {
-
             InitializeComponent();
-           
-
-         
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -32,9 +25,9 @@ namespace MessengerVK
         {
             App.Current.Shutdown();
         }
-      
 
-      
+
+       
     }
    
 

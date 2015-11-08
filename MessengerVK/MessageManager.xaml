@@ -6,8 +6,8 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:viewModel="clr-namespace:MessengerVK.ViewModel"
            Title="MessageManager"
-           Width="1024"
-           Height="774"
+          WindowState="Maximized"
+           WindowStartupLocation="CenterScreen"
            Closed="Window_Closed"
            Loaded="Window_Loaded"
            mc:Ignorable="d">
@@ -24,8 +24,8 @@
             <av:RowDefinition Height="2*" />
         </av:Grid.RowDefinitions>
         <av:TextBlock Grid.Row="0"
-                      Grid.Column="1"
-                      Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center"
                       Text="Status" />
@@ -39,24 +39,35 @@
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center"
                       Text="AboutFriends" />
-        <av:ListView Grid.Row="2"
+                     <av:ListView Grid.Row="2"
                     Name="ListView"                        
                      Grid.RowSpan="2"
                      Grid.Column="0"
                      ItemsSource="{Binding}"
-                  
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                      >
             <av:ListView.View >
                 <av:GridView>
-                    <av:GridViewColumn    Width="100">
+                    <GridViewColumn>
+                        <av:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image MaxHeight="100" MinWidth="100" Source="{Binding Path=Avatar}"/>
+                            </DataTemplate>
+                            </av:GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}" Width="100"/>
+                    <GridViewColumn Header="Online" DisplayMemberBinding="{Binding Path=Online}" Width="100"/>
+                    
+                   <!-- <av:GridViewColumn Width="100">
                         <av:GridViewColumn.CellTemplate>
                             <av:DataTemplate >
                                 <av:Image Height="70" Source="{Binding Path=Avatar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                             </av:DataTemplate>
                         </av:GridViewColumn.CellTemplate>
                     </av:GridViewColumn>
-                    <av:GridViewColumn Width="100">
+                    <av:GridViewColumn  Width="100">
+                       
                         <av:GridViewColumn.CellTemplate>
                             <av:DataTemplate>
                                 <av:TextBlock Text="{Binding Path=Name , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
@@ -69,7 +80,7 @@
                                 <av:TextBlock Text="{Binding Path=Online , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
                             </av:DataTemplate>
                         </av:GridViewColumn.CellTemplate>
-                    </av:GridViewColumn>
+                    </av:GridViewColumn>-->
                 </av:GridView>
             </av:ListView.View>
         </av:ListView>

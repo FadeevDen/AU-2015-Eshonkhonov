@@ -11,7 +11,7 @@ namespace MessengerVK
        private static string authFailed="Authorization failed";
        private static string authSuccessful= "Authorization Successful";
        private static string nullField = "Enter Username and Password";
-      
+       private static string nullProfileFileds= "Unkown";
         public string AuthFailed
         {
             get
@@ -34,6 +34,19 @@ namespace MessengerVK
             get
             {
                 return nullField;
+            }
+        }
+
+        public static string NullProfileFileds
+        {
+            get
+            {
+                return nullProfileFileds;
+            }
+
+            set
+            {
+                nullProfileFileds = value;
             }
         }
     }

@@ -1,17 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MessengerVK
 {
-   public class Friend
-   {
+    public class Friend
+    {
+        private Int64 id;
        private string name;
-       private string avatar;
-       private bool online;
+        private string lastName;
+       private string avatar100px;
+        private string avatarMax;
+        private bool online;
+       private string country;
+       private string city;
+        private string birthDay;
+        private string mobilePhone;
+
         public string Name
         {
             get
@@ -28,12 +31,12 @@ namespace MessengerVK
         {
             get
             {
-                return avatar;
+                return avatar100px;
             }
 
             set
             {
-                avatar = value;
+                avatar100px = value;
             }
         }
 
@@ -47,6 +50,97 @@ namespace MessengerVK
             set
             {
                 online = value;
+            }
+        }
+
+        public string Country
+        {
+            get
+            {
+                return country;
+            }
+
+            set
+            {
+                country = value;
+            }
+        }
+
+        public string City
+        {
+            get
+            {
+                return city;
+            }
+
+            set
+            {
+                city = value;
+            }
+        }
+
+        public string BirthDay
+        {
+            get
+            {
+                return birthDay;
+            }
+
+            set
+            {
+                birthDay = value;
+            }
+        }
+
+        public string MobilePhone
+        {
+            get
+            {
+                return mobilePhone;
+            }
+
+            set
+            {
+                mobilePhone = value;
+            }
+        }
+
+        public string AvatarMax
+        {
+            get
+            {
+                return avatarMax;
+            }
+
+            set
+            {
+                avatarMax = value;
+            }
+        }
+
+        public long Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public string LastName
+        {
+            get
+            {
+                return lastName;
+            }
+
+            set
+            {
+                lastName = value;
             }
         }
     }

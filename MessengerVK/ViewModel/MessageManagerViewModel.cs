@@ -1,7 +1,11 @@
 ﻿
+using System;
 using System.Collections.Generic;
 
 using System.ComponentModel;
+using System.Linq;
+using System.Windows;
+using System.Windows.Input;
 
 namespace MessengerVK.ViewModel
 {
@@ -10,20 +14,23 @@ namespace MessengerVK.ViewModel
     public class MessageManagerViewModel :INotifyPropertyChanged
     {
 
-        private List<Friend> friendsList = new List<Friend>();
+        
          public MessageManagerViewModel()
         {
-            FriendModel.FriendList.UpdateFriendList();
-            FriendModel.FriendList.TimerUpdateFriendList();
-            FriendsList = FriendModel.FriendList.FriendsList;
+             FriendModel.FriendListSingelton.UpdateFriendList();
+             FriendModel.FriendListSingelton.TimerUpdateFriendList();
+             FriendsList = FriendModel.FriendListSingelton.GetInstance().FriendsList;
         }
         public List<Friend> FriendsList
         {
-            get { return friendsList; }
+            get
+            {
+                return FriendModel.FriendListSingelton.GetInstance().FriendsList;
+            }
 
             set
             {
-                friendsList = value;
+                FriendModel.FriendListSingelton.GetInstance().FriendsList = value;
                 OnPropertyChanged("FriendList");
             }
         }
@@ -43,7 +50,25 @@ namespace MessengerVK.ViewModel
             return FriendsList;
         }
 
-        
+        public ICommand SortFriendsListByAlphabet
+        {
+            get
+            {
+                return new RelayCommand((args) =>
+                {
+                    GetSortListByOnline();
+                });
+            }
+        }
+
+        public List<Friend> GetSortListByOnline()
+        {
+            
+            FriendsList = new List<Friend>(FriendsList.OrderByDescending(friend => friend.Online));
+            return FriendsList;
+        } 
+
+
     }
 }
 

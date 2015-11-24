@@ -5,10 +5,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-
-using VkNet;
 using VkNet.Enums.Filters;
-using VkNet.Model;
 
 
 namespace MessengerVK
@@ -98,20 +95,28 @@ namespace MessengerVK
             MainWindow.messageManager.InitializeComponent();           
             MainWindow.messageManager.ShowDialog();
         }
+
+
+
         private async Task Wait()
         {
-            await Task.Delay(1000);
+          await Task.Run((() =>
+          {
+              status = authInformation.PleaseWait;
+                Admin.GetInstance().ApiSingelton.Authorize(appID, Login, Password, scope);
+                Admin.GetInstance().UserSingelton =
+                    Admin.GetInstance()
+                        .ApiSingelton.Users.Get(Int64.Parse(Admin.GetInstance().ApiSingelton.UserId.ToString()),
+                            ProfileFields.All);
+            }));
         }
 
-        public async void Authorization()
+        private async void Authorization()
         {
             if (login != null && password != null)
             {
                 try
                 {
-                    Admin.GetInstance().ApiSingelton.Authorize(appID, Login, Password, scope);
-                    Admin.GetInstance().UserSingelton=Admin.GetInstance().ApiSingelton.Users.Get(Int64.Parse(Admin.GetInstance().ApiSingelton.UserId.ToString()), ProfileFields.All);
-                    status = authInformation.AuthSuccessful;
                     await Wait();
                     IsVisible = Visibility.Collapsed;
                     StartUpMessageManager();
@@ -126,6 +131,7 @@ namespace MessengerVK
                 status = authInformation.NullField;
             }
         }
+
        
         public ICommand ButtonSign
         {

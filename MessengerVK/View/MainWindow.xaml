@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:user="clr-namespace:MessengerVK"
-       Title="SignIn"
+        Title="SignIn"
         Width="270"
         Height="290"
         ResizeMode="NoResize"
@@ -15,7 +15,7 @@
         <user:SignInViewModel />
     </Window.DataContext>
     <Window.Visibility>
-      <Binding Path="IsVisible" Mode="TwoWay"/>
+        <Binding Mode="TwoWay" Path="IsVisible" />
     </Window.Visibility>
     <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
@@ -45,18 +45,16 @@
         <TextBlock Grid.Row="2"
                    Grid.Column="0"
                    Text="Пароль" />
-        <PasswordBox Grid.Row="2"
-                 Grid.Column="1"
-                Name="PasswordBox"
-                PasswordChar="*"
-                 />
+        <PasswordBox Name="PasswordBox"
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     PasswordChar="*" />
         <Button x:Name="BnSignIn"
                 Grid.Row="3"
                 Grid.Column="0"
                 Command="{Binding ButtonSign}"
                 CommandParameter="{Binding ElementName=PasswordBox}"
-                Content="SignIn">
-            </Button>
+                Content="SignIn" />
         <Button x:Name="BnCancel"
                 Grid.Row="3"
                 Grid.Column="1"

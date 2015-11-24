@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Input;
 using MessengerVK.ViewModel;
+using VkNet.Model;
 
 
 namespace MessengerVK
@@ -17,18 +20,13 @@ namespace MessengerVK
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             MessageManagerViewModel myDataCtx = new MessageManagerViewModel();
-            DataContext = myDataCtx.FriendsList;
-            
+            DataContext = myDataCtx;
+
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
             App.Current.Shutdown();
         }
-
-
-       
     }
-   
-
 }

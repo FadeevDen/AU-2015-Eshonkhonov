@@ -73,7 +73,6 @@ C:\Users\Lenovo\Documents\GitHub\AU-2015-Eshonkhonov\MessengerVK\obj\Debug\Messe
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\MessengerVK.exe.config
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.exe
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.pdb
-D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MainWindow.g.cs
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\App.g.cs
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK_MarkupCompile.cache
@@ -89,7 +88,6 @@ D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Newtonsoft.Json.pdb
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Newtonsoft.Json.xml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\VkNet.pdb
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\VkNet.xml
-D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MainWindow.baml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.g.resources
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.Properties.Resources.resources
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.csproj.GenerateResource.Cache
@@ -97,8 +95,6 @@ D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Practices.Service
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\System.Windows.Interactivity.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessageManager.g.cs
-D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessageManager.baml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Interactions.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Interactions.xml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\System.Windows.Interactivity.xml
@@ -107,3 +103,8 @@ D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\OpenTK.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Tao.Sdl.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Lidgren.Network.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.csprojResolveAssemblyReference.cache
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\View\MessageManager.baml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\View\MainWindow.g.cs
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\View\MessageManager.g.cs
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\View\MainWindow.baml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Simpler.Net.Html.dll

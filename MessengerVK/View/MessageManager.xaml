@@ -1,99 +1,115 @@
-﻿<av:Window x:Class="MessengerVK.MessageManager"
-           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-           xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-           xmlns:helpers="clr-namespace:MessengerVK.Helpers"
-           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-           Title="MessageManager"
-           AllowDrop="True"
-           Closed="Window_Closed"
-           Loaded="Window_Loaded"
-           WindowStartupLocation="CenterOwner"
-           WindowState="Maximized"
-           mc:Ignorable="d">
-    <av:Grid ShowGridLines="True">
-        <av:Grid.ColumnDefinitions>
-            <av:ColumnDefinition Width="2*" />
-            <av:ColumnDefinition Width="4*" />
-            <av:ColumnDefinition Width="1*" />
-        </av:Grid.ColumnDefinitions>
-        <av:Grid.RowDefinitions>
-            <av:RowDefinition Height="1*" />
-            <av:RowDefinition Height="2*" />
-            <av:RowDefinition Height="6*" />
-            <av:RowDefinition Height="2*" />
-        </av:Grid.RowDefinitions>
-        <av:TextBlock Grid.Row="0"
-                      Grid.Column="0"
-                      Grid.ColumnSpan="3"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center"
-                      Text="Status" />
-        <av:Grid Grid.Row="1" Grid.Column="0">
-            <av:Grid.RowDefinitions>
-                <av:RowDefinition Height="1*" />
-                <av:RowDefinition Height="3*" />
-            </av:Grid.RowDefinitions>
-            <av:Grid Grid.Row="0" Grid.Column="0">
-                <av:Grid.ColumnDefinitions>
-                    <av:ColumnDefinition Width="3*" />
-                    <av:ColumnDefinition Width="1*" />
+﻿<Window x:Class="MessengerVK.MessageManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:helpers="clr-namespace:MessengerVK.Helpers"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MessageManager"
+        AllowDrop="True"
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterOwner"
+        WindowState="Maximized"
+        WindowStyle="None"
+        helpers:DialogCloser.DialogResult="{Binding CloseWindowFlag}"
+        mc:Ignorable="d">
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Grid.Column="0"
+              Grid.ColumnSpan="3">
+            <Button Width="32"
+                    Height="32"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Command="{Binding Path=Close}">
+                <Button.Background>
+                    <ImageBrush ImageSource="https://www.iconfinder.com/icons/463017/download/png/128" />
+                </Button.Background>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="1*" />
 
-                </av:Grid.ColumnDefinitions>
-                <av:TextBox Grid.Row="0"
-                            Grid.Column="0"
-                            Text="Search Friend" />
-                <av:Button Grid.Row="0"
-                           Grid.Column="1"
-                           Content="Search" />
-            </av:Grid>
-            <av:Button Grid.Row="1"
-                       Grid.Column="0"
-                       Command="{Binding Path=WriteMessage}"
-                       Content="Write Message" />
-        </av:Grid>
-        <av:ListView Grid.Row="2"
-                     Grid.RowSpan="2"
-                     Grid.Column="0"
-                     ItemsSource="{Binding Path=FriendsList}"
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                     SelectedIndex="{Binding Path=IndexSelectedFriend,
-                                             Mode=TwoWay}">
-            <av:ListView.View>
-                <av:GridView AllowsColumnReorder="False">
-                    <av:GridViewColumn>
-                        <av:GridViewColumnHeader Visibility="Hidden" />
-                        <av:GridViewColumn.CellTemplate>
-                            <av:DataTemplate>
-                                <av:Image MinWidth="100"
-                                          MaxHeight="100"
-                                          Source="{Binding Path=Avatar}" />
-                            </av:DataTemplate>
-                        </av:GridViewColumn.CellTemplate>
-                    </av:GridViewColumn>
-                    <av:GridViewColumn Width="100" DisplayMemberBinding="{Binding Path=Name}">
-                        <av:GridViewColumnHeader Visibility="Hidden" />
-                    </av:GridViewColumn>
-                    <av:GridViewColumn Width="200" DisplayMemberBinding="{Binding Path=Online}">
-                        <av:GridViewColumnHeader Visibility="Hidden" />
-                    </av:GridViewColumn>
-                </av:GridView>
-            </av:ListView.View>
-        </av:ListView>
-        <av:WebBrowser Grid.Row="2"
-                       Grid.Column="1"
-                       VerticalAlignment="Center"
-                       helpers:WebBrowserHelper.Body="{Binding Path=MyHtml}" />
-        <av:Grid Grid.Row="3" Grid.Column="1">
-            <av:TextBox AcceptsReturn="True"
-                        ScrollViewer.VerticalScrollBarVisibility="Auto"
-                        Text="NewMessage"
-                        TextWrapping="Wrap" />
-        </av:Grid>
-        <av:Grid Grid.Row="3" Grid.Column="2">
-            <av:Button x:Name="BnSend" Content="Send" />
-        </av:Grid>
-    </av:Grid>
-</av:Window>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Row="0"
+                         Grid.Column="0"
+                         Text="Search Friend" />
+                <Button Grid.Row="0"
+                        Grid.Column="1"
+                        Content="Search" />
+
+            </Grid>
+            <Button Grid.Row="1"
+                    Grid.Column="0"
+                    Command="{Binding Path=WriteMessage}"
+                    Content="Write Message" />
+
+        </Grid>
+        <ListView Grid.Row="2"
+                  Grid.RowSpan="2"
+                  Grid.Column="0"
+                  ItemsSource="{Binding Path=FriendsList}"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  SelectedIndex="{Binding Path=IndexSelectedFriend,
+                                          Mode=TwoWay}">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn>
+                        <GridViewColumnHeader Visibility="Hidden" />
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image MinWidth="100"
+                                       MaxHeight="100"
+                                       Source="{Binding Path=Avatar}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Path=Name}">
+                        <GridViewColumnHeader Visibility="Hidden" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="200" DisplayMemberBinding="{Binding Path=Online}">
+                        <GridViewColumnHeader Visibility="Hidden" />
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <WebBrowser Grid.Row="2"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    helpers:WebBrowserHelper.Body="{Binding Path=MyHtml}" />
+        <Button Grid.Row="2"
+                Grid.Column="2"
+                Height="100"
+                VerticalAlignment="Bottom"
+                Command="{Binding Path=SaveToWordFile}">
+            Save
+        </Button>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <TextBox AcceptsReturn="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     Text="NewMessage"
+                     TextWrapping="Wrap" />
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="2">
+            <Button x:Name="BnSend" Content="Send" />
+        </Grid>
+    </Grid>
+</Window>
 

@@ -91,13 +91,6 @@ D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\VkNet.xml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.g.resources
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.Properties.Resources.resources
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.csproj.GenerateResource.Cache
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\System.Windows.Interactivity.dll
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Interactions.dll
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Interactions.xml
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\System.Windows.Interactivity.xml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\MonoGame.Framework.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\OpenTK.dll
 D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Tao.Sdl.dll
@@ -107,4 +100,4 @@ D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\View\MessageManager.baml
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\View\MainWindow.g.cs
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\View\MessageManager.g.cs
 D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\View\MainWindow.baml
-D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Simpler.Net.Html.dll
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\MessengerVK.csproj.ResolveComReference.cache

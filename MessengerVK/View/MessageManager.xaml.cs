@@ -21,12 +21,7 @@ namespace MessengerVK
         {
             MessageManagerViewModel myDataCtx = new MessageManagerViewModel();
             DataContext = myDataCtx;
-
         }
 
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            App.Current.Shutdown();
-        }
     }
 }

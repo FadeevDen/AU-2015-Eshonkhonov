@@ -11,7 +11,7 @@ using VkNet.Enums.Filters;
 namespace MessengerVK
 {
     
-    public  class SignInViewModel :INotifyPropertyChanged
+    public  class SignInViewModel :DependencyObject,INotifyPropertyChanged
     {
         private string _status;
         private const int appID = 5074413; // ID приложения
@@ -21,6 +21,7 @@ namespace MessengerVK
         private Visibility isVisible;
         private Settings scope; //Уровень доступа
         private ICommand buttonSign;
+        ICommand close;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string status
@@ -82,11 +83,17 @@ namespace MessengerVK
                         new PropertyChangedEventArgs("IsVisible"));
             }
         }
+        public static readonly DependencyProperty CloseWindowFlagProperty =
+        DependencyProperty.Register("CloseWindowFlag", typeof(bool?), typeof(SignInViewModel), new UIPropertyMetadata(null));
+        public bool? CloseWindowFlag
+        {
+            get { return (bool?)GetValue(CloseWindowFlagProperty); }
+            set { SetValue(CloseWindowFlagProperty, value); }
+        }
         //Methods
         public SignInViewModel()
         {
             scope = Settings.All;
-           
             authInformation = new AuthInformation();
             MainWindow.messageManager = new MessageManager();
         }
@@ -136,6 +143,12 @@ namespace MessengerVK
         public ICommand ButtonSign
         {
             get { return buttonSign ?? (buttonSign = new RelayCommand((args) => { Password = ((PasswordBox)args).Password; Authorization(); })); }
+        }
+
+        
+        public ICommand Close
+        {
+            get { return close = new RelayCommand((args) => { CloseWindowFlag = true; }); }
         }
         protected void OnPropertyChanged(string name)
         {

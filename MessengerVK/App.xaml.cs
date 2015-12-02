@@ -13,5 +13,6 @@ namespace MessengerVK
     /// </summary>
     public partial class App : Application
     {
+       
     }
 }

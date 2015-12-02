@@ -16,12 +16,7 @@ namespace MessengerVK
             InitializeComponent();
            
         }
-        
-        //Закрытие окна
-        private void BnCancel_Click(object sender, RoutedEventArgs e) => this.Close();
-        //Метод который позволяет перетаскивать окно
+       //Метод который позволяет перетаскивать окно
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) => DragMove();
     }
-
-   
 }

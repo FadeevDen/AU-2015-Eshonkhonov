@@ -1,7 +1,4 @@
-﻿
-using System.Windows;
-
-
+﻿using System.Windows;
 namespace MessengerVK.Helpers
 {
     public static class DialogCloser
@@ -19,8 +16,9 @@ namespace MessengerVK.Helpers
         {
             var window = d as Window;
             if (window != null)
-                window.Close();
-        }
+            {
+                App.Current.Shutdown();
+            } }
         public static void SetDialogResult(Window target, bool? value)
         {
             target.SetValue(DialogResultProperty, value);

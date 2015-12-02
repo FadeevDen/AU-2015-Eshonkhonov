@@ -1,22 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 using MessengerVK.Builder;
 using Message = MessengerVK.Builder.Message;
 
-
 namespace MessengerVK.ViewModel
 {
-
-
-    public class MessageManagerViewModel : INotifyPropertyChanged
+    public class MessageManagerViewModel :DependencyObject, INotifyPropertyChanged
     {
         ICommand writeMessage;
-
         int indexSelectedFriend;
-
+        public event PropertyChangedEventHandler PropertyChanged;
+        private string _myHtml;
+        ICommand saveToWordFile;
+        ICommand close;
+        public  readonly DependencyProperty CloseWindowFlagProperty;
+        public MessageManagerViewModel()
+        {
+            CloseWindowFlagProperty =DependencyProperty.Register("CloseWindowFlag", typeof(bool?), typeof(MessageManagerViewModel), new UIPropertyMetadata(null));
+            FriendModel.FriendListSingelton.UpdateFriendList();
+            FriendModel.FriendListSingelton.TimerUpdateFriendList();
+            FriendsList = FriendModel.FriendListSingelton.GetInstance().FriendsList;
+        }
+        //property
         public int IndexSelectedFriend
         {
             get { return indexSelectedFriend; }
@@ -26,18 +34,6 @@ namespace MessengerVK.ViewModel
                 OnPropertyChanged("IndexSelectedFriend");
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public MessageManagerViewModel()
-        {
-
-            FriendModel.FriendListSingelton.UpdateFriendList();
-            FriendModel.FriendListSingelton.TimerUpdateFriendList();
-            FriendsList = FriendModel.FriendListSingelton.GetInstance().FriendsList;
-        }
-
-
         public List<Friend> FriendsList
         {
             get { return FriendModel.FriendListSingelton.GetInstance().FriendsList; }
@@ -58,10 +54,6 @@ namespace MessengerVK.ViewModel
                 OnPropertyChanged("MessageList");
             }
         }
-
-
-        private string _myHtml;
-
         public string MyHtml
         {
             get { return _myHtml; }
@@ -74,7 +66,12 @@ namespace MessengerVK.ViewModel
                 }
             }
         }
-
+        public bool? CloseWindowFlag
+        {
+            get { return (bool?)GetValue(CloseWindowFlagProperty); }
+            set { SetValue(CloseWindowFlagProperty, value); }
+        }
+        //commands
         public ICommand WriteMessage
         {
             get
@@ -88,6 +85,34 @@ namespace MessengerVK.ViewModel
             }
         }
 
+        public ICommand Close
+        {
+            get
+            {
+                return close = new RelayCommand((o =>
+                {
+                    CloseWindowFlag = true;
+
+                }));
+            }
+        }
+        public ICommand SaveToWordFile
+        {
+            get
+            {
+                return saveToWordFile = new RelayCommand((o =>
+                {
+                    Saver saver = new Saver();
+                    ChatHistorySaver chatHistorySaver = new ChatHistorySaver();
+                    saver.SetCommand(new ChatHistoryOnCommand(chatHistorySaver));
+                    saver.PressSave(FriendsList[IndexSelectedFriend].Id, Admin.GetInstance().UserSingelton.FirstName,
+                        Admin.GetInstance().UserSingelton.LastName, FriendsList[IndexSelectedFriend].Name,
+                        FriendsList[IndexSelectedFriend].LastName,
+                    MessageList.Count,MessageList);
+                }));
+            }
+        }
+        //methods
         private void WriteMessageMethod()
         {
             MessageList = new List<Message>();

@@ -108,10 +108,10 @@ namespace MessengerVK.ViewModel
                 {
                    
                     saver.SetCommand(new ChatHistoryOnCommand(chatHistorySaver));
-                    saver.PressSave(FriendsList[IndexSelectedFriend].Id, Admin.GetInstance().UserSingelton.FirstName,
+                    saver.PressSave(Admin.GetInstance().UserSingelton.FirstName,
                         Admin.GetInstance().UserSingelton.LastName, FriendsList[IndexSelectedFriend].Name,
                         FriendsList[IndexSelectedFriend].LastName,
-                    MessageList.Count,MessageList);
+                    MessageList.Count,MessageList,IndexSelectedFriend);
                     
                 }));
             }
@@ -125,7 +125,7 @@ namespace MessengerVK.ViewModel
                 return deleteWordFile = new RelayCommand((o =>
                 {
                     saver.SetCommand(new ChatHistoryOnCommand(chatHistorySaver));
-                    saver.PressDelete(chatHistorySaver.Path);
+                    saver.PressDelete(FriendsList[IndexSelectedFriend].WordDocumentPath);
                 }));
             }
         }

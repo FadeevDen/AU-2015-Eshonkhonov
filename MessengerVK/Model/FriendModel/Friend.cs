@@ -14,7 +14,7 @@ namespace MessengerVK
        private string city;
         private string birthDay;
         private string mobilePhone;
-
+        private string wordDocumentPath;
         public string Name
         {
             get
@@ -141,6 +141,19 @@ namespace MessengerVK
             set
             {
                 lastName = value;
+            }
+        }
+
+        public string WordDocumentPath
+        {
+            get
+            {
+                return wordDocumentPath;
+            }
+
+            set
+            {
+                wordDocumentPath = value;
             }
         }
     }

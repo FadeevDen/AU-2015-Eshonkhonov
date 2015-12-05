@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:helpers="clr-namespace:MessengerVK.Helpers"
+      
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="MessageManager"
         AllowDrop="True"
@@ -33,7 +34,7 @@
                     VerticalAlignment="Top"
                     Command="{Binding Path=Close}">
                 <Button.Background>
-                    <ImageBrush ImageSource="https://www.iconfinder.com/icons/463017/download/png/128" />
+                    <ImageBrush ImageSource="https://www.iconfinder.com/icons/27842/download/png/256" />
                 </Button.Background>
             </Button>
         </Grid>
@@ -94,21 +95,33 @@
                     Grid.Column="1"
                     VerticalAlignment="Center"
                     helpers:WebBrowserHelper.Body="{Binding Path=MyHtml}" />
-        <Button Grid.Row="2"
-                Grid.Column="2"
-                Height="100"
-                VerticalAlignment="Bottom"
-                Command="{Binding Path=SaveToWordFile}">
-            Save
-        </Button>
-        <Grid Grid.Row="3" Grid.Column="1">
-            <TextBox AcceptsReturn="True"
-                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                     Text="NewMessage"
-                     TextWrapping="Wrap" />
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0"
+                        Command="{Binding Path=SaveToWordFile}"
+                        Content="Save"
+                        Style="{StaticResource ButtonStyle}" />
+                <Button Grid.Row="1"
+                        Command="{Binding Path=DeleteWordFile}"
+                        Content="Delete"
+                        Style="{StaticResource ButtonStyle}" />
+            </Grid>
+
+
         </Grid>
+        <Grid Grid.Row="3" Grid.Column="1">
+           </Grid>
         <Grid Grid.Row="3" Grid.Column="2">
-            <Button x:Name="BnSend" Content="Send" />
+            <Button Content="Send" Style="{StaticResource ButtonStyle}" />
         </Grid>
     </Grid>
 </Window>

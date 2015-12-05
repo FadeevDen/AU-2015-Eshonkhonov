@@ -3,6 +3,10 @@ using MessengerVK.Builder;
 using VkNet.Enums;
 using Word = Microsoft.Office.Interop.Word;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace MessengerVK
@@ -10,21 +14,39 @@ namespace MessengerVK
     interface ICommandSaveToWord
     {
         void Execute(long id, string AdminFristName, string AdminLastName, string FriendFristName, string FriendLastName,int count, List<Message> MessageList);
-        void Undo();
+        void Delete(string path);
     }
     // Receiver
     class ChatHistorySaver
     {
+        string _path;
+
+        public string Path
+        {
+            get
+            {
+                return _path;
+            }
+
+            set
+            {
+                _path = value;
+            }
+        }
+
         public void Save(long id, string AdminFristName, string AdminLastName, string FriendFristName, string FriendLastName,int count, List<Message> MessageList)
         {
+            string path=string.Empty;
+            Word.Application wordApp = new Word.Application();
+            Word.Document wordDocument= wordApp.Documents.Add(DocumentType: Word.WdNewDocumentType.wdNewBlankDocument);
             try
-            {  Word.Application wordApp = new Word.Application();
-                Word.Document wordDocument;
-                wordDocument = wordApp.Documents.Add(DocumentType: Word.WdNewDocumentType.wdNewBlankDocument);
+            {   
                 var range = wordDocument.Content;
                 Word.Tables Tables = wordDocument.Tables;
                 Tables.Add(range, count, 3, true, true);
                 FilTable(id, Tables, AdminFristName, AdminLastName, FriendFristName, FriendLastName, count, MessageList);
+                wordDocument.Save();
+                Path =wordDocument.FullName;
                 wordDocument.Close();
                 wordApp.Quit();
             }
@@ -32,8 +54,7 @@ namespace MessengerVK
             {
                 MessageBox.Show(e.Message);
             }
-           
-        }
+         }
         private static void FilTable(long id, Word.Tables Tables, string AdminFristName, string AdminLastName, string FriendFristName, string FriendLastName,int count, List<Message> MessageList)
         {
             for (int i = 1; i <= 3; i++)
@@ -80,9 +101,12 @@ namespace MessengerVK
             chatSaver.Save( id,  AdminFristName,  AdminLastName,  FriendFristName,  FriendLastName,count, MessageList);
         }
 
-        public void Undo()
+        public void Delete(string path)
         {
-            throw new NotImplementedException();
+            if (path!=null)
+            {
+                File.Delete(path);
+            }
         }
     }
     // Invoker 
@@ -102,9 +126,9 @@ namespace MessengerVK
             if (command != null) command.Execute( id,  AdminFristName,  AdminLastName,  FriendFristName,  FriendLastName, count, MessageList);
         }
 
-        public void PressUndo()
+        public void PressDelete(string path)
         {
-            if (command != null) command.Undo();
+            if (command != null) command.Delete(path);
         }
     }
 }

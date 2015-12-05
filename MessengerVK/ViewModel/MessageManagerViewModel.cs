@@ -16,6 +16,8 @@ namespace MessengerVK.ViewModel
         private string _myHtml;
         ICommand saveToWordFile;
         ICommand close;
+        Saver saver;
+        ChatHistorySaver chatHistorySaver;
         public  readonly DependencyProperty CloseWindowFlagProperty;
         public MessageManagerViewModel()
         {
@@ -23,6 +25,8 @@ namespace MessengerVK.ViewModel
             FriendModel.FriendListSingelton.UpdateFriendList();
             FriendModel.FriendListSingelton.TimerUpdateFriendList();
             FriendsList = FriendModel.FriendListSingelton.GetInstance().FriendsList;
+            saver = new Saver();
+            chatHistorySaver = new ChatHistorySaver();
         }
         //property
         public int IndexSelectedFriend
@@ -102,13 +106,26 @@ namespace MessengerVK.ViewModel
             {
                 return saveToWordFile = new RelayCommand((o =>
                 {
-                    Saver saver = new Saver();
-                    ChatHistorySaver chatHistorySaver = new ChatHistorySaver();
+                   
                     saver.SetCommand(new ChatHistoryOnCommand(chatHistorySaver));
                     saver.PressSave(FriendsList[IndexSelectedFriend].Id, Admin.GetInstance().UserSingelton.FirstName,
                         Admin.GetInstance().UserSingelton.LastName, FriendsList[IndexSelectedFriend].Name,
                         FriendsList[IndexSelectedFriend].LastName,
                     MessageList.Count,MessageList);
+                    
+                }));
+            }
+        }
+
+        ICommand deleteWordFile;
+        public ICommand DeleteWordFile
+        {
+            get
+            {
+                return deleteWordFile = new RelayCommand((o =>
+                {
+                    saver.SetCommand(new ChatHistoryOnCommand(chatHistorySaver));
+                    saver.PressDelete(chatHistorySaver.Path);
                 }));
             }
         }

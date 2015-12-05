@@ -35,45 +35,32 @@ namespace MessengerVK
                         new PropertyChangedEventArgs("status"));
             }
         }
-      
+
         public string Login
         {
-            get
-            {
-                return login;
-            }
+            get { return login; }
 
             set
             {
                 login = value;
-                if (PropertyChanged != null)
-                    PropertyChanged.Invoke(this,
-                        new PropertyChangedEventArgs("Login"));
+                OnPropertyChanged("Login");
             }
         }
 
         public string Password
         {
-            get
-            {
-                return password;
-            }
+            get { return password; }
 
             set
             {
                 password = value;
-                if (PropertyChanged != null)
-                    PropertyChanged.Invoke(this,
-                        new PropertyChangedEventArgs("Password"));
+                OnPropertyChanged("Password");
             }
         }
 
         public Visibility IsVisible
         {
-            get
-            {
-                return isVisible;
-            }
+            get { return isVisible; }
 
             set
             {
@@ -83,6 +70,7 @@ namespace MessengerVK
                         new PropertyChangedEventArgs("IsVisible"));
             }
         }
+
         public static readonly DependencyProperty CloseWindowFlagProperty =
         DependencyProperty.Register("CloseWindowFlag", typeof(bool?), typeof(SignInViewModel), new UIPropertyMetadata(null));
         public bool? CloseWindowFlag
@@ -97,52 +85,68 @@ namespace MessengerVK
             authInformation = new AuthInformation();
             MainWindow.messageManager = new MessageManager();
         }
+
         public void StartUpMessageManager()
-        {           
-            MainWindow.messageManager.InitializeComponent();           
+        {
+            MainWindow.messageManager.InitializeComponent();
             MainWindow.messageManager.ShowDialog();
-        }
-
-
-
+       }
         private async Task Wait()
         {
-          await Task.Run((() =>
-          {
-              status = authInformation.PleaseWait;
-                Admin.GetInstance().ApiSingelton.Authorize(appID, Login, Password, scope);
-                Admin.GetInstance().UserSingelton =
-                    Admin.GetInstance()
-                        .ApiSingelton.Users.Get(Int64.Parse(Admin.GetInstance().ApiSingelton.UserId.ToString()),
-                            ProfileFields.All);
+            await Task.Run((() =>
+            {
+                try
+                {
+                    status = authInformation.PleaseWait;
+                    Admin.GetInstance().ApiSingelton.Authorize(appID, Login, Password, scope);
+                    Admin.GetInstance().UserSingelton =
+                        Admin.GetInstance()
+                            .ApiSingelton.Users.Get(Int64.Parse(Admin.GetInstance().ApiSingelton.UserId.ToString()),
+                                ProfileFields.All);
+                }
+                catch (Exception)
+                {
+                    status = authInformation.AuthFailed;
+                }
+
             }));
         }
 
         private async void Authorization()
         {
-            if (login != null && password != null)
+            try
             {
-                try
+                await Wait();
+                if (Admin.GetInstance().ApiSingelton.AccessToken != null)
                 {
-                    await Wait();
                     IsVisible = Visibility.Collapsed;
                     StartUpMessageManager();
                 }
-                catch
-                {
-                    status = authInformation.AuthFailed;
-                }
             }
-            else
+            catch
             {
-                status = authInformation.NullField;
+                status = authInformation.AuthFailed;
             }
         }
 
-       
+
         public ICommand ButtonSign
         {
-            get { return buttonSign ?? (buttonSign = new RelayCommand((args) => { Password = ((PasswordBox)args).Password; Authorization(); })); }
+            get
+            {
+                return buttonSign ?? (buttonSign = new RelayCommand((args) =>
+                {
+                    Password = ((PasswordBox) args).Password;
+                    if ((Login!=null) && Password.Length>0)
+                    {
+                        Authorization();
+                    }
+                    else
+                    {
+                        status = authInformation.NullField;
+                    }
+                }));
+            }
         }
 
         

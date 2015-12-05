@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\
+D:\Science\ИТ\CourseWork\MessengerVK\obj\Debug\
 MessengerVK
 none
 false
 DEBUG;TRACE
-D:\Science\ИТ\С#\CourseWork\MessengerVK\App.xaml
-21486282207
+D:\Science\ИТ\CourseWork\MessengerVK\App.xaml
+392571089
 
 272095536122
-18-2028467918
-View\MainWindow.xaml;View\MessageManager.xaml;
+18-936730726
+Styles\Style.xaml;View\MainWindow.xaml;View\MessageManager.xaml;
 
 False
 

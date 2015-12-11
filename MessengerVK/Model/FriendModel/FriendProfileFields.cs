@@ -38,17 +38,7 @@ namespace MessengerVK.FriendModel
         {
             for (int i = 0; i < friendsListTemporaryReadOnly.Count; i++)
             {
-                Friend friendTemplate = new Friend();
-                for (int j = 0; j < OnlineFriendsIds.Count; j++)
-                {
-                    if (OnlineFriendsIds[j] == friendsListTemporaryReadOnly[i].Id)
-                    {
-                        friendTemplate.Online = true;
-                    }
-                }
-                friendTemplate.Avatar = friendsListTemporaryReadOnly[i].PhotoPreviews.Photo100;
-                friendTemplate.Name = friendsListTemporaryReadOnly[i].FirstName;
-                friendTemplate.Id = friendsListTemporaryReadOnly[i].Id;
+                var friendTemplate = FriendTemplate(OnlineFriendsIds, friendsListTemporaryReadOnly, i);
                 if (FriendListSingelton.GetInstance().FriendsList.Count != friendsListTemporaryReadOnly.Count)
                 {
                     RefreshFriendsListClearListIfCountsNotEquals();
@@ -58,6 +48,23 @@ namespace MessengerVK.FriendModel
                     RefreshFriendsListClearListIfCountsEquals(i,friendTemplate);
                 }
             }
+        }
+
+        private static Friend FriendTemplate(ReadOnlyCollection<long> OnlineFriendsIds,
+            ReadOnlyCollection<User> friendsListTemporaryReadOnly, int i)
+        {
+            Friend friendTemplate = new Friend();
+            for (int j = 0; j < OnlineFriendsIds.Count; j++)
+            {
+                if (OnlineFriendsIds[j] == friendsListTemporaryReadOnly[i].Id)
+                {
+                    friendTemplate.Online = true;
+                }
+            }
+            friendTemplate.Avatar = friendsListTemporaryReadOnly[i].PhotoPreviews.Photo100;
+            friendTemplate.Name = friendsListTemporaryReadOnly[i].FirstName;
+            friendTemplate.Id = friendsListTemporaryReadOnly[i].Id;
+            return friendTemplate;
         }
 
         public static void GetFriendProfileFieldsTimerForAsyncMethod()

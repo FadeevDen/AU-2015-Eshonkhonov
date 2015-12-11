@@ -134,3 +134,13 @@ D:\Science\ИТ\CourseWork\MessengerVK\obj\Debug\View\MainWindow.baml
 D:\Science\ИТ\CourseWork\MessengerVK\obj\Debug\MessengerVK.g.resources
 D:\Science\ИТ\CourseWork\MessengerVK\obj\Debug\MessengerVK.Properties.Resources.resources
 D:\Science\ИТ\CourseWork\MessengerVK\obj\Debug\MessengerVK.csproj.GenerateResource.Cache
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\App.baml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\Styles\Style.baml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\Helpers\Control\TextBlockControl.baml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\Helpers\Control\TextBoxControl.baml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\Helpers\Control\TextBlockControl.g.cs
+D:\Science\ИТ\С#\CourseWork\MessengerVK\obj\Debug\Helpers\Control\TextBoxControl.g.cs
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Interactions.dll
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\System.Windows.Interactivity.dll
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\Microsoft.Expression.Interactions.xml
+D:\Science\ИТ\С#\CourseWork\MessengerVK\bin\Debug\System.Windows.Interactivity.xml

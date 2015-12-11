@@ -1,9 +1,10 @@
 ﻿<Window x:Class="MessengerVK.MessageManager"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:control="clr-namespace:MessengerVK.Helpers.Control"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:helpers="clr-namespace:MessengerVK.Helpers"
-      
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="MessageManager"
         AllowDrop="True"
@@ -13,7 +14,7 @@
         WindowStyle="None"
         helpers:DialogCloser.DialogResult="{Binding CloseWindowFlag}"
         mc:Ignorable="d">
-    <Grid ShowGridLines="True">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="4*" />
@@ -38,40 +39,21 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="3*" />
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Grid.Column="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="1*" />
-
-                </Grid.ColumnDefinitions>
-                <TextBox Grid.Row="0"
-                         Grid.Column="0"
-                         Text="Search Friend" />
-                <Button Grid.Row="0"
-                        Grid.Column="1"
-                        Content="Search" />
-
-            </Grid>
-            <Button Grid.Row="1"
-                    Grid.Column="0"
-                    Command="{Binding Path=WriteMessage}"
-                    Content="Write Message" />
-
-        </Grid>
-        <ListView Grid.Row="2"
-                  Grid.RowSpan="2"
+        <ListView Grid.Row="1"
+                  Grid.RowSpan="3"
                   Grid.Column="0"
                   ItemsSource="{Binding Path=FriendsList}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   SelectedIndex="{Binding Path=IndexSelectedFriend,
                                           Mode=TwoWay}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding WriteMessage}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
             <ListView.View>
                 <GridView AllowsColumnReorder="False">
+
                     <GridViewColumn>
                         <GridViewColumnHeader Visibility="Hidden" />
                         <GridViewColumn.CellTemplate>
@@ -91,8 +73,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <WebBrowser Grid.Row="2"
+        <WebBrowser Grid.Row="1"
                     Grid.Column="1"
+                    Grid.RowSpan="2"
                     VerticalAlignment="Center"
                     helpers:WebBrowserHelper.Body="{Binding Path=MyHtml}" />
         <Grid Grid.Row="2" Grid.Column="2">
@@ -115,13 +98,15 @@
                         Content="Delete"
                         Style="{StaticResource ButtonStyle}" />
             </Grid>
-
-
         </Grid>
         <Grid Grid.Row="3" Grid.Column="1">
-           </Grid>
+            <control:TextBoxControl x:Name="TextBox" AcceptsReturn="False" />
+        </Grid>
         <Grid Grid.Row="3" Grid.Column="2">
-            <Button Content="Send" Style="{StaticResource ButtonStyle}" />
+            <Button Command="{Binding Path=SendMessage}"
+                    CommandParameter="{Binding ElementName=TextBox}"
+                    Content="Send"
+                    Style="{StaticResource ButtonStyle}" />
         </Grid>
     </Grid>
 </Window>

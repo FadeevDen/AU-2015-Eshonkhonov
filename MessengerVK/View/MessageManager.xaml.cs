@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using MessengerVK.Helpers.Control;
 using MessengerVK.ViewModel;
 using VkNet.Model;
 
@@ -22,6 +26,7 @@ namespace MessengerVK
             MessageManagerViewModel myDataCtx = new MessageManagerViewModel();
             DataContext = myDataCtx;
         }
+
 
     }
 }
